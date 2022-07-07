@@ -29,18 +29,11 @@ logger = logging.getLogger(__name__)
 
 url = "https://travel-places.p.rapidapi.com/"
 
-payload = { "query": "{ getPlaces(categories:[\"NATURE\"],lat:37,lng:-122,maxDistMeters:50000) { name,lat,lng,abstract,distance,categories } }"}
 headers = {
 	"content-type": "application/json",
 	"X-RapidAPI-Key": "13f7c64447mshf93fbfc967b9920p119350jsn94528bf10f5f",
 	"X-RapidAPI-Host": "travel-places.p.rapidapi.com"
 }
-
-response = requests.request("POST", url, json=payload, headers=headers)
-
-print(response.text)
-
-
 
 def get_api_url(params):
     categories = params['categories']
