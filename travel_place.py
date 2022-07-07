@@ -47,7 +47,7 @@ def get_api_url(params):
     country = params['country']
     print(type(categories))
     print(country)
-    payload = { "query": '{ getPlaces(categories: [\"{}\"], country:\"{}\") { name,lat,lng,abstract,distance,categories,country } }'.format(categories, country)}
+    payload = { "query": '{ getPlaces(categories: [f"{categories}"], country:f"{country}") { name,lat,lng,abstract,distance,categories,country } }'}
 
     return  requests.request("POST", url, json=payload, headers=headers).json()
     
